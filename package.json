@@ -5,9 +5,11 @@
   "main": "index.js",
   "scripts": {
     "clean": "rm -rf target",
-    "test": "tsc && ava --verbose ./target/test/**/*.js",
-    "build": "webpack --config ./webpack.config.js",
-    "build:watch": "webpack --watch --config ./webpack.config.js"
+    "test:unit": "ava --verbose ./target/test/unit/**/*.js",
+    "test:e2e": "echo e2e",
+    "test": "npm run test:unit && npm run test:e2e",
+    "build": "tsc && webpack --config ./webpack.config.js",
+    "build:watch": "tsc --watch & webpack --watch --config ./webpack.config.js"
   },
   "author": "sxend",
   "license": "MIT",

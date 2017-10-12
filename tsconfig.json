@@ -1,20 +1,19 @@
 {
-    "compilerOptions": {
-        "module": "commonjs",
-        "noImplicitAny": true,
-        "preserveConstEnums": true,
-        "noImplicitAny": false,
-        "sourceMap": true,
-        "outDir": "target",
-        "lib": ["es5", "dom", "es2015"]
-    },
-    "include": [
-        "src/main/typescript/*",
-        "src/main/typescript/**/*",
-        "src/test/typescript/*",
-        "src/test/typescript/**/*"
-    ],
-    "exclude": [
-        "node_modules/",
-    ]
+  "compilerOptions": {
+    "module": "commonjs",
+    "noImplicitAny": true,
+    "preserveConstEnums": true,
+    "noImplicitAny": false,
+    "sourceMap": true,
+    "outDir": "target",
+    "lib": ["es5", "dom", "es2015"]
+  },
+  "include": [
+    "src/main/typescript/**/*",
+    "src/test/unit/typescript/**/*",
+    "src/test/e2e/typescript/**/*",
+  ],
+  "exclude": [
+    "node_modules/",
+  ]
 }
