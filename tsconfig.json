@@ -1,0 +1,17 @@
+{
+    "compilerOptions": {
+        "module": "commonjs",
+        "noImplicitAny": true,
+        "preserveConstEnums": true,
+        "noImplicitAny": false,
+        "sourceMap": true,
+        "lib": ["es5", "dom", "es2015.collection"]
+    },
+    "include": [
+        "src/main/**/*"
+    ],
+    "exclude": [
+        "node_modules",
+        "**/*.spec.ts"
+    ]
+}
