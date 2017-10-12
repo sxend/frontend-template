@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "clean": "rm -rf target",
-    "test": "tsc && ava ./target/test/**/*.js",
+    "test": "tsc && ava --verbose ./target/test/**/*.js",
     "build": "webpack --config ./webpack.config.js",
     "build:watch": "webpack --watch --config ./webpack.config.js"
   },
@@ -15,10 +15,7 @@
     "ava": "^0.22.0",
     "awesome-typescript-loader": "^3.2.3",
     "typescript": "^2.5.3",
-    "typings": "^2.1.1",
     "webpack": "^3.7.1"
   },
-  "dependencies": {
-    "es6-promise": "^4.1.1"
-  }
+  "dependencies": {}
 }
