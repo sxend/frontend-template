@@ -1,8 +1,8 @@
 export module App {
   export async function main() {
-    // console.log(getMessage());
+    console.log(await getMessage());
   }
-  // export async function getMessage() {
-  //   return "message";
-  // }
+  export async function getMessage() {
+    return "message";
+  }
 }

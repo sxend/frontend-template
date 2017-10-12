@@ -1,3 +1,7 @@
-import {App} from './app';
 
-window['App'] = window['App'] || App;
+import {App as AppModule} from './app';
+const App = window['App'] = window['App'] || {};
+App.q = App.q || [];
+App.q.forEach(cmd => {
+    cmd(AppModule);
+});
