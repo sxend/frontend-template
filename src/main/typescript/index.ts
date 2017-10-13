@@ -1,7 +1,7 @@
 
-import {App as AppModule} from './app';
+import {App as app} from './app';
 const App = window['App'] = window['App'] || {};
 App.q = App.q || [];
 App.q.forEach(cmd => {
-    cmd(AppModule);
+    cmd(app);
 });

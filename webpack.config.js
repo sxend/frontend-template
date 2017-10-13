@@ -1,4 +1,5 @@
 const path = require('path');
+const webpack = require('webpack');
 
 module.exports = function(env, argv) {
   return [{
@@ -16,5 +17,10 @@ module.exports = function(env, argv) {
         loader: 'awesome-typescript-loader'
       }]
     },
+    plugins: [
+      new webpack.ProvidePlugin({
+          Promise: 'es6-promise'
+      }),
+    ]
   }];
 };
