@@ -1,7 +1,13 @@
 
-import {App as app} from './app';
+import { App as app } from './app';
 const App = window['App'] = window['App'] || {};
 App.q = App.q || [];
-App.q.forEach(cmd => {
-    cmd(app);
-});
+
+function watchQueue() {
+  while (App.q.length > 0) {
+    App.q.shift()(app);
+  }
+  setTimeout(watchQueue, 100);
+}
+
+watchQueue();

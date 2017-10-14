@@ -1,0 +1,8 @@
+{
+  "production": {
+    "ENVIRONMENT": "production"
+  },
+  "staging": {
+    "ENVIRONMENT": "staging"
+  }
+}

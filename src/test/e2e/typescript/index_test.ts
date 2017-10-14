@@ -3,20 +3,20 @@ import test from 'ava';
 
 test('load index.html', async (t) => {
   const nightmare = Nightmare({
-     show: false,
-     width: 360,
-     height: 640
+    show: false,
+    width: 360,
+    height: 640
   });
-  const result = await nightmare
+  const message = await nightmare
     .on('console', (log, msg) => {
       console.log(msg);
     })
     .goto('file:// ' + process.cwd() + '/src/test/e2e/resources/index.html')
-    .wait(function() {
+    .wait(() => {
       return !!window['AppModule'];
     })
-    .evaluate(function() {
-      return window['AppModule'];
+    .evaluate(() => {
+      return window['AppModule'].getMessage();
     });
-  t.is(result.INJECTED, "injected value for production");
+  t.is(message, "execute in production");
 });

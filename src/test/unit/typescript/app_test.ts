@@ -1,6 +1,8 @@
 import test from 'ava';
-import {App} from '../../../main/typescript/app';
+import { App } from '../../../main/typescript/app';
 
-test('App.getMessage', async function (t) {
-	t.is(await App.getMessage(), 'message');
+test('App.getMessage', async function(t) {
+  const message = await App.getMessage();
+  t.truthy(message);
+  t.truthy(message.match(/^execute in /));
 });

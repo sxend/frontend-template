@@ -1,9 +1,10 @@
 export module App {
-  export const INJECTED = '/* @echo INJECTED */';
+  export const ENVIRONMENT = '/* @echo ENVIRONMENT */';
   export async function main() {
-    console.log(await getMessage());
+    const message = await getMessage();
+    console.log(message);
   }
   export async function getMessage() {
-    return "message";
+    return "execute in " + App.ENVIRONMENT;
   }
 }

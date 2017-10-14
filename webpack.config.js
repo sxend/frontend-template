@@ -25,7 +25,7 @@ function configuration(env) {
         test: /\.ts$/,
         use: [
           'awesome-typescript-loader',
-          'preprocess-loader?' + JSON.stringify(preprocessArg[env])
+          'preprocess-loader?' + JSON.stringify(environments[env])
         ]
       }]
     },
@@ -45,11 +45,5 @@ function configuration(env) {
   });
   return [raw, compressed];
 }
-const preprocessArg = {
-  production: {
-    INJECTED: "injected value for production"
-  },
-  staging: {
-    INJECTED: "injected value for staging"
-  }
-};
+
+const environments = require('./build/environments.json');
