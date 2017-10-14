@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "clean": "rm -rf target",
-    "test:unit": "ava --verbose ./target/test/unit/**/*.js",
+    "test:unit": "ava --verbose ./target/tsc/test/unit/**/*.js",
     "test:e2e": "echo e2e",
     "test": "npm run test:unit && npm run test:e2e",
     "build": "tsc && webpack --config ./webpack.config.js",
@@ -16,6 +16,7 @@
   "devDependencies": {
     "ava": "^0.22.0",
     "awesome-typescript-loader": "^3.2.3",
+    "preprocess-loader": "^0.2.2",
     "typescript": "^2.5.3",
     "webpack": "^3.7.1"
   },

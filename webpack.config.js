@@ -24,7 +24,8 @@ function configuration(env) {
       rules: [{
         test: /\.ts$/,
         use: [
-          'awesome-typescript-loader'
+          'awesome-typescript-loader',
+          'preprocess-loader?' + JSON.stringify(preprocessArg[env])
         ]
       }]
     },
@@ -44,3 +45,11 @@ function configuration(env) {
   });
   return [raw, compressed];
 }
+const preprocessArg = {
+  production: {
+    INJECTED: "injected value for production"
+  },
+  staging: {
+    INJECTED: "injected value for staging"
+  }
+};
