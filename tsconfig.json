@@ -10,8 +10,7 @@
   },
   "include": [
     "src/main/typescript/**/*",
-    "src/test/unit/typescript/**/*",
-    "src/test/e2e/typescript/**/*",
+    "src/test/typescript/**/*",
   ],
   "exclude": [
     "node_modules/",
