@@ -1,12 +1,8 @@
-const __getPort = require('get-port');
-const hoxy = require('hoxy');
-const Nightmare = require('nightmare');
-const util = require('util');
+import * as getPort from 'get-port';
+import * as hoxy from 'hoxy';
+import * as Nightmare from 'nightmare';
 
 export namespace TestSupport {
-  export async function getPort() {
-      return __getPort();
-  }
   export async function createProxy(options?: any) {
     const port = await getPort();
     return new Promise<any>((resolve, reject) => {

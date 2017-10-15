@@ -1,4 +1,4 @@
-import Nightmare = require('nightmare');
+import * as Nightmare from 'nightmare';
 import test from 'ava';
 import {TestSupport} from '../test-support';
 
