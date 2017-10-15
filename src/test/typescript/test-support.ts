@@ -11,7 +11,7 @@ export namespace TestSupport {
     const port = await getPort();
     return new Promise<any>((resolve, reject) => {
       const proxy = hoxy.createServer(options).listen(port, "localhost", function(err) {
-        if(!!err) {
+        if(err) {
           return reject(err);
         }
         resolve(proxy);
@@ -22,14 +22,13 @@ export namespace TestSupport {
     return new Promise((resolve, reject) => {
       proxy.close(function(err) { // optional callback
         if (err) {
-          reject(err);
-          return;
+          return reject(err);
         }
         resolve();
       });
     });
   }
-  export function createNightmare(options: any = {}) {
+  export async function createNightmare(options: any = {}) {
     const nightmare = Nightmare(Object.assign({}, {
       show: false,
       width: 360,
@@ -38,6 +37,6 @@ export namespace TestSupport {
     .on('console', (log, msg) => {
       console.log(msg);
     });
-    return nightmare;
+    return {nightmare};
   }
 }

@@ -5,12 +5,12 @@ import {TestSupport} from '../test-support';
 test.beforeEach(async t => {
   const proxy = await TestSupport.createProxy();
   t.context.proxy = proxy;
-  const nightmare = TestSupport.createNightmare({
+  const nightmare = (await TestSupport.createNightmare({
     switches : {
       'proxy-server': 'localhost:' + proxy.address().port,
       'ignore-certificate-errors': true,
     }
-  });
+  })).nightmare;
   t.context.nightmare = nightmare;
 });
 test.afterEach(async t => {
