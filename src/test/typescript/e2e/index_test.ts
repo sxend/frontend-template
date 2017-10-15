@@ -1,16 +1,11 @@
 import * as Nightmare from 'nightmare';
 import test from 'ava';
-import {TestSupport} from '../test-support';
+import { TestSupport } from '../test-support';
 
 test.beforeEach(async t => {
   const proxy = await TestSupport.createProxy();
+  const { nightmare } = await TestSupport.createNightmareWithProxy(proxy);
   t.context.proxy = proxy;
-  const nightmare = (await TestSupport.createNightmare({
-    switches : {
-      'proxy-server': 'localhost:' + proxy.address().port,
-      'ignore-certificate-errors': true,
-    }
-  })).nightmare;
   t.context.nightmare = nightmare;
 });
 test.afterEach(async t => {
@@ -18,12 +13,12 @@ test.afterEach(async t => {
 })
 test('load index.html', async (t) => {
   const message = await t.context.nightmare
-  .goto('file:// ' + process.cwd() + '/src/test/resources/index.html')
-  .wait(() => {
-    return !!window['AppModule'];
-  })
-  .evaluate(() => {
-    return window['AppModule'].getMessage();
-  });
+    .goto('file:// ' + process.cwd() + '/src/test/resources/index.html')
+    .wait(() => {
+      return !!window['AppModule'];
+    })
+    .evaluate(() => {
+      return window['AppModule'].getMessage();
+    });
   t.is(message, "execute in production");
 });
