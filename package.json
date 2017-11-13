@@ -20,10 +20,9 @@
     "nightmare": "^2.10.0",
     "preprocess-loader": "^0.2.2",
     "typescript": "^2.5.3",
-    "webpack": "^3.7.1"
+    "webpack": "^3.7.1",
+    "hoxy": "^3.2.2",
+    "es6-promise": "^4.1.1"
   },
-  "dependencies": {
-    "es6-promise": "^4.1.1",
-    "hoxy": "^3.2.2"
-  }
+  "dependencies": {}
 }
